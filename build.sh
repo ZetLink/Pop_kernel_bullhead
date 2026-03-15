@@ -1,7 +1,8 @@
 echo
 echo "Setup"
 echo
-export LOCALVERSION="-Pop-Kernel-${branch_name}/${last_commit}"
+export LOCALVERSION="-Pop-KSU"
+rm -rf out
 mkdir -p out
 export ARCH=arm64
 export SUBARCH=arm64
@@ -11,7 +12,7 @@ make O=out mrproper
 echo
 echo "Issue Build Commands"
 echo
-export CROSS_COMPILE=/home/andrea/android/gcc10/arm64-gcc/bin/aarch64-elf-
+export CROSS_COMPILE=/home/zetlink/Documentos/AndroidDevelopment/Bullhead-KSU/toolchain/gcc10/bin/aarch64-none-linux-gnu-
 
 echo
 echo "Set DEFCONFIG"
@@ -26,5 +27,5 @@ make O=out -j$(nproc --all)
 rm ./AnyKernel3/Image.gz-dtb
 cp ./out/arch/arm64/boot/Image.gz-dtb ./AnyKernel3
 cd AnyKernel3
-rm ./Pop_kernel-bullhead-O-rx-x.zip
-zip -r9 Pop_kernel-bullhead-O-rx-x.zip * -x .git README.md *placeholder
+rm ./Pop_kernel-bullhead-KSU-O-rx-x.zip
+zip -r9 Pop_kernel-bullhead-KSU-O-rx-x.zip * -x .git README.md *placeholder
